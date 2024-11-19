@@ -14,6 +14,14 @@ def stream_video():
         cv2.imshow("picam", frame)
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
+        elif cv2.waitKey(1) & 0xFF == ord('p'):
+            output_folder = "../data"
+            img_name = "Foto.png"
+            if not os.path.exists(output_folder):
+                os.makedirs(output_folder)
+            cv2.imwrite(os.path.join(output_folder, img_name), img)
+
+
     cv2.destroyAllWindows()
 
 if __name__ == "__main__":
